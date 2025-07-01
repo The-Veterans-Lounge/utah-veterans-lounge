@@ -2,7 +2,7 @@
 
 **A place for veterans to belong.**
 
-The Veterans Lounge is a Utah County nonprofit organization dedicated to providing a welcoming community space where military veterans can connect, support one another, and access resources for their post-service journey.
+The Veterans Lounge is a Utah County veterans organization dedicated to providing a welcoming community space where military veterans can connect, support one another, and access resources for their post-service journey.
 
 ## Our Mission
 
@@ -21,10 +21,10 @@ We're developing comprehensive resources to help Utah veterans access services, 
 
 ## Leadership
 
-**Hank** - Founder and Director  
+**Hank** - Organization Founder  
 Bronze Star recipient with a passion for veteran advocacy and community building.
 
-**Mark** - Co-Founder  
+**Mark** - Organization Leader  
 Dedicated to creating sustainable programs that serve veteran families throughout Utah County.
 
 ## Get Involved
@@ -52,6 +52,6 @@ We're actively modernizing our digital presence to better serve our community:
 
 ---
 
-*The Veterans Lounge is a 501(c)(3) nonprofit organization. All donations are tax-deductible.*
+*The Veterans Lounge is a 501(c)(19) veterans organization.*
 
 *"Supporting those who served, one connection at a time."*
