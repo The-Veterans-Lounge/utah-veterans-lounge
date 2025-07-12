@@ -18,6 +18,15 @@ We can add sophisticated integrations like VA API connections, payment processin
 
 This approach completely eliminates CORS issues because the browser only talks to domains we control, while our server-side functions handle all external API communication.
 
+## Live Demo
+
+See the CORS proxy in action: https://fall-in-veterans-hackatho-b6e2580aa7336.webflow.io/javascript-test
+
+This demo shows:
+- Real-time API calls from Webflow to Netlify functions
+- CORS-free data fetching in action
+- The exact implementation we'll use for VA APIs, Stripe, etc.
+
 **What stays in Webflow:**
 - All visual designs, layouts, and content
 - The CMS structure and data
@@ -31,6 +40,14 @@ This approach completely eliminates CORS issues because the browser only talks t
 - Configuration files for our functions
 
 ## Step-by-Step Implementation Guide
+
+## What This DOESN'T Require
+**Important:** This approach does NOT require:
+- ❌ Downloading or exporting Webflow code
+- ❌ Managing your own servers
+- ❌ Moving away from Webflow hosting
+- ❌ Complex DevOps knowledge
+- ❌ Maintaining infrastructure
 
 ### Step 1: Project Structure Setup
 
