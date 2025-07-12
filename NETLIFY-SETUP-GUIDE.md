@@ -192,10 +192,12 @@ document.addEventListener('DOMContentLoaded', loadProxyData);
 
 Step 5: Deployment Process
 
-Push your functions to GitHub - just the functions, nothing else
-Connect GitHub to Netlify - one-time setup in Netlify dashboard
-Set environment variables - API keys stay secure in Netlify's dashboard
-Automatic deployment - every push to GitHub automatically updates your functions
+1. Push your functions to GitHub
+2. just the functions, nothing else
+3. Connect GitHub to Netlify - one-time setup in Netlify dashboard
+4. Set environment variables
+5. API keys stay secure in Netlify's dashboard
+6. Automatic deployment - every push to GitHub automatically updates your functions
 
 Testing Your Functions
 Test with cURL:
