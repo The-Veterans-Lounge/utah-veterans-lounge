@@ -151,7 +151,7 @@ async function loadProxyData() {
   try {
     container.innerHTML = '<div style="padding: 20px; text-align: center;">🔄 Testing CORS-free endpoint...</div>';
     
-    const response = await fetch('https://ubiquitous-dango-4cc27f.netlify.app/.netlify/functions/test-api', {
+    const response = await fetch('http://localhost:8888/api/test-api', {
       method: 'GET'
     });
     
@@ -160,7 +160,9 @@ async function loadProxyData() {
     }
     
     const result = await response.json();
+    const healthCheckResult = await healthCheckResponse.json()
     console.log('✅ Data received:', result);
+    console.log('✅ Health Check received:', healthCheckResult);
     
     // Display the data in your Webflow site
     container.innerHTML = `
