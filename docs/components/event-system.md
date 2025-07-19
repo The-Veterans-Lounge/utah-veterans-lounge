@@ -14,14 +14,14 @@ Link To Webflow University - CMS: https://university.webflow.com/videos/build-ma
 1. Designer
    This is the main visual interface where you build your site.
 
-You use sections, containers, div blocks, and elements (like text, images, buttons).
+You use sections, containers, div blocks, and elements (like text, docshots/images, buttons).
 
 Think of it as a drag-and-drop version of HTML/CSS.
 
 2. CMS (Content Management System)
    Webflow lets you define collections like Events, Blog Posts, or Team Members.
 
-Each collection has custom fields (like date, title, image).
+Each collection has custom fields (like date, title, docshots/image).
 
 You can then bind collection data to your design using Collection Lists or Collection Pages.
 
@@ -38,7 +38,7 @@ CMS items are updated dynamically — no need to republish the whole site.
 ⚙️ Event System Use Case (High-Level)
 To build an event system:
 
-Create a CMS Collection called Events with fields like Name, Date, Time, Description, Image, Location.
+Create a CMS Collection called Events with fields like Name, Date, Time, Description, docshots/Image, Location.
 
 Use a Collection List to display events dynamically on a page.
 
@@ -52,13 +52,13 @@ Note: This guide was written as of July 17, 2025.
 
 ## Register, Create, and Proceed to Dashboard
 
-![alt text](image.png)
+![alt text](docshots/image.png)
 
 Proceed to Webflow site, register your account, and you should see dashboard like the above picture. Click new site button to proceed.
 
 ## Navigate to CMS Dashboard
 
-![alt text](image-1.png)
+![alt text](docshots/image-1.png)
 
 ## Create A Collection
 
@@ -69,33 +69,33 @@ Think of collections attributes as a template for what you categorize. Since we 
 3.  Add New field button will allow you to add more attributes or fields to your collection.
 4.  Will also bring up a new field just like the Add new Field button.
 
-![alt text](image-2.png)
+![alt text](docshots/image-2.png)
 
 ## Reference Event Settings
 
 Here are the reference fields built out for how we have Events collection defined. Feel free to pick and choose. This is just here as a point of reference.
-![alt text](image-3.png)
+![alt text](docshots/image-3.png)
 
-![alt text](image-4.png)
+![alt text](docshots/image-4.png)
 
 We created three reference events as an example.
 
 Example of an event
 
-![alt text](image-5.png)
+![alt text](docshots/image-5.png)
 
 Take notice of all the fields present here. These should line up with the Events collection we have defined earlier. What you currently see above is just a singular instance of an event like a template. Since many events will share these common attributes we can quickly make new events and fill in these fields to make a new event.
 
 Once you have finalized your events, make sure to publish them at the top right. This will allow us to utilize the event collections.
 
-![alt text](image-19.png)
+![alt text](docshots/image-19.png)
 
 ## Back To Design
 
-![alt text](image-7.png)
+![alt text](docshots/image-7.png)
 
-![alt text](image-8.png)
-After clicking the design button you should see a blank screen like above. We want now create a collection image block to fill in the details. We will be following the 3 reference events listed earlier for this example.
+![alt text](docshots/image-8.png)
+After clicking the design button you should see a blank screen like above. We want now create a collection docshots/image block to fill in the details. We will be following the 3 reference events listed earlier for this example.
 
 ## Insert Elements and Create Sample Page
 
@@ -108,48 +108,48 @@ Directly Below the Add button you will notice the pages. We are going a sample p
 ## Insert Collection Wrapper
 
 From the add button you should see Collection List. Click on it and you should now see that the collection list wrapper is present underneath Navigator panel.
-![alt text](image-9.png)
+![alt text](docshots/image-9.png)
 
 Next, lets create a heading block and drag it into the collection. You should see it nested underneath like you see in collection item. Notice the relationship parent child relationship for all of our elements.
 
-![alt text](image-12.png)
+![alt text](docshots/image-12.png)
 
 After inserting the header block you should see something like above.
 
-![alt text](image-13.png)
+![alt text](docshots/image-13.png)
 
 Click on a heading block. Notice the purple dot highlighted. This is webflow's way of indiciating that we can bind a collection property to this.
 
-![alt text](image-14.png)
+![alt text](docshots/image-14.png)
 Click on the purple dot and you should see a drop down with a list of fields just like the events we defined earlier. Click on whatever you named Event Name/Title and you should see it affect all three headings.
-![alt text](image-15.png)
+![alt text](docshots/image-15.png)
 
 ## Repeat To Create Description
 
 Repeat the earlier methods and put in the description of event. Use a paragraph element this time and it should look something like below.
-![alt text](image-16.png)
+![alt text](docshots/image-16.png)
 
-## Add An Image
+## Add An docshots/Image
 
-Rinse and repeat for an image. Select an image block and you should have something roughly like below.
+Rinse and repeat for an docshots/image. Select an docshots/image block and you should have something roughly like below.
 
-![alt text](image-17.png)
+![alt text](docshots/image-17.png)
 
 ## Styling
 
-![alt text](image-18.png)
+![alt text](docshots/image-18.png)
 
 Now is the time you can mix and match your styling. Remember the hiearchy and watch the HTML and CSS videos to get a better understanding.
 
 Suggestions to center would be to apply the following properties in the layout for Collection List and the Collection Item underneath the design panel. Remember when you set the styling inside the collection, it applies to all of them so be sure to take it slow.
 
-![alt text](image-20.png)
+![alt text](docshots/image-20.png)
 
 - Display: Flex
 - Align: Center
 - Direction: Down
 
-![alt text](image-21.png)
+![alt text](docshots/image-21.png)
 
 ## Publish
 
