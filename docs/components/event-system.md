@@ -14,14 +14,14 @@ Link To Webflow University - CMS: https://university.webflow.com/videos/build-ma
 1. Designer
    This is the main visual interface where you build your site.
 
-You use sections, containers, div blocks, and elements (like text, docshots/images, buttons).
+You use sections, containers, div blocks, and elements (like text, images, buttons).
 
 Think of it as a drag-and-drop version of HTML/CSS.
 
 2. CMS (Content Management System)
    Webflow lets you define collections like Events, Blog Posts, or Team Members.
 
-Each collection has custom fields (like date, title, docshots/image).
+Each collection has custom fields (like date, title, image).
 
 You can then bind collection data to your design using Collection Lists or Collection Pages.
 
@@ -38,7 +38,7 @@ CMS items are updated dynamically — no need to republish the whole site.
 ⚙️ Event System Use Case (High-Level)
 To build an event system:
 
-Create a CMS Collection called Events with fields like Name, Date, Time, Description, docshots/Image, Location.
+Create a CMS Collection called Events with fields like Name, Date, Time, Description, Image, Location.
 
 Use a Collection List to display events dynamically on a page.
 
@@ -95,7 +95,7 @@ Once you have finalized your events, make sure to publish them at the top right.
 ![alt text](docshots/image-7.png)
 
 ![alt text](docshots/image-8.png)
-After clicking the design button you should see a blank screen like above. We want now create a collection docshots/image block to fill in the details. We will be following the 3 reference events listed earlier for this example.
+After clicking the design button you should see a blank screen like above. We want now create a collection image block to fill in the details. We will be following the 3 reference events listed earlier for this example.
 
 ## Insert Elements and Create Sample Page
 
