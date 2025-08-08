@@ -59,4 +59,4 @@ We're actively modernizing our digital presence to better serve our community:
 ## Contributors
 
 - Jameel Matin
-- Greg Petropoulos
+- Greg Petropoulos- Benjamin Parrish
