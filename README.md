@@ -59,5 +59,6 @@ We're actively modernizing our digital presence to better serve our community:
 ## Contributors
 
 - Jameel Matin
-- Greg Petropoulos- Benjamin Parrish
+- Greg Petropoulos
+- Benjamin Parrish
 - Rodel Advincula
