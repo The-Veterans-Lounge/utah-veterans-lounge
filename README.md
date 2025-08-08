@@ -11,12 +11,15 @@ We believe every veteran deserves a place to belong. Through weekly gatherings, 
 ## What We Do
 
 ### Weekly Poker Nights
+
 Every Thursday evening, veterans gather for our signature poker nights - a relaxed setting where stories are shared, friendships are forged, and the isolation many veterans face is replaced with genuine community connection.
 
 ### Community Events & Fundraisers
+
 We host regular events that bring veterans and their families together while supporting local veteran causes and building awareness of veteran needs in Utah County.
 
 ### Resource Navigation
+
 We're developing comprehensive resources to help Utah veterans access services, benefits, and opportunities available to them throughout their civilian transition and beyond.
 
 ## Leadership
@@ -30,9 +33,11 @@ Dedicated to creating sustainable programs that serve veteran families throughou
 ## Get Involved
 
 ### For Veterans
+
 Join us any Thursday evening for poker night, or connect with us through our community events. No matter where you are in your post-service journey, there's a place for you here.
 
 ### For Supporters
+
 We welcome community partners who share our commitment to supporting those who served. Whether through volunteering, sponsorship, or spreading awareness, there are many ways to contribute to our mission.
 
 ## Current Projects
@@ -52,11 +57,12 @@ We're actively modernizing our digital presence to better serve our community:
 
 ---
 
-*The Veterans Lounge is a 501(c)(19) veterans organization.*
+_The Veterans Lounge is a 501(c)(19) veterans organization._
 
-*"Supporting those who served, one connection at a time."*
+_"Supporting those who served, one connection at a time."_
 
 ## Contributors
 
 - Jameel Matin
 - Greg Petropoulos
+- Michael Sigg
