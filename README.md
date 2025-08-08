@@ -55,3 +55,7 @@ We're actively modernizing our digital presence to better serve our community:
 *The Veterans Lounge is a 501(c)(19) veterans organization.*
 
 *"Supporting those who served, one connection at a time."*
+
+## Contributors
+
+- Jameel Matin
