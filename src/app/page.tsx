@@ -52,6 +52,33 @@ export default function Home() {
             </a>
           </nav>
           <div className="flex items-center gap-3">
+            <button
+              onClick={async () => {
+                try {
+                  const response = await fetch('/app/api/stripe/checkout-session', {
+                    method: 'POST',
+                  });
+                  
+                  if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                  }
+                  
+                  const data = await response.json() as { url: string };
+                  
+                  if (!data.url) {
+                    throw new Error('No checkout URL received from server');
+                  }
+                  
+                  window.location.href = data.url;
+                } catch (error) {
+                  console.error('Checkout error:', error);
+                  alert('Payment system temporarily unavailable. Please try again in a moment.');
+                }
+              }}
+              className="px-4 py-2 rounded-xl bg-red-600 text-white hover:bg-red-700 text-sm"
+            >
+              Donate with Stripe
+            </button>
             <a
               href="/join"
               className="px-4 py-2 rounded-xl border border-neutral-300 hover:bg-neutral-100 text-sm"
