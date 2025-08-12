@@ -15,7 +15,8 @@
     "next": "15.2.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "stripe": "^18.4.0"
+    "stripe": "^18.4.0",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250415.0",
