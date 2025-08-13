@@ -18,6 +18,15 @@ export async function POST(request: NextRequest) {
     console.log("THis is amount", amount);
     const stripe = getStripe();
     const env = getEnv();
+    
+    // Test Stripe connectivity
+    console.log("Testing Stripe connectivity...");
+    try {
+      await stripe.products.list({ limit: 1 });
+      console.log("Stripe API connection successful");
+    } catch (connectError) {
+      console.error("Stripe connectivity test failed:", connectError);
+    }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],

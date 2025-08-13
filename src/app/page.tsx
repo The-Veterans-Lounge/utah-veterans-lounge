@@ -118,9 +118,9 @@ export default function Home() {
               A safe, welcoming space for Veterans
             </h1>
             <p className="mt-5 text-lg text-neutral-700 max-w-prose">
-              The Veteran&apos;s Lounge is a place to relax, connect, and belong.
-              Designed by veterans for veterans—play games, watch movies, or
-              just hang out without crowds, noise, or pressure.
+              The Veteran&apos;s Lounge is a place to relax, connect, and
+              belong. Designed by veterans for veterans—play games, watch
+              movies, or just hang out without crowds, noise, or pressure.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -187,8 +187,8 @@ export default function Home() {
               </div>
               <p className="mt-6 text-neutral-700">
                 Come for table games or consoles, stay for the community.
-                Whether you&apos;re in the mood for movies, a few rounds of pool, or
-                a quiet conversation, you’ll find a place here.
+                Whether you&apos;re in the mood for movies, a few rounds of
+                pool, or a quiet conversation, you’ll find a place here.
               </p>
             </div>
           </div>
@@ -299,8 +299,8 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Support the mission</h2>
             <p className="mt-3 text-white/80 max-w-prose">
               Your gift helps us keep the doors open and programs running for
-              veterans in our community. The Veteran&apos;s Lounge is a registered
-              501(c)(19) organization.
+              veterans in our community. The Veteran&apos;s Lounge is a
+              registered 501(c)(19) organization.
             </p>
             <div className="mt-6 flex gap-3">
               <a
