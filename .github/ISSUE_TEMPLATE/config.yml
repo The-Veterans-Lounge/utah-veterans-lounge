@@ -1,0 +1,22 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📄 Project Documentation
+    url: https://yourproject.docs
+    about: Check the official documentation before opening an issue.
+  - name: 💬 Discussions
+    url: https://github.com/yourorg/yourrepo/discussions
+    about: For open questions and ideas not yet ready to be a formal issue.
+
+issue_templates:
+  - name: "🚀 Feature Request"
+    description: Suggest a new feature or improvement
+    labels: ["enhancement", "needs-triage"]
+    file: feature_request.md
+  - name: "🐛 Bug Report"
+    description: Report a reproducible bug
+    labels: ["bug", "needs-triage"]
+    file: bug_report.md
+  - name: "🤝 Discussion / Question"
+    description: Start a discussion or ask a question
+    labels: ["question", "needs-triage"]
+    file: discussion.md
