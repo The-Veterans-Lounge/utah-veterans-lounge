@@ -7,10 +7,10 @@ export async function GET() {
   const env = getEnv();
   
   // Test external API connectivity
-  let externalApiTest = { status: "unknown", error: null };
+  let externalApiTest: { status: string; error: string | null } = { status: "unknown", error: null };
   try {
     const dogResponse = await fetch('https://dog.ceo/api/breeds/image/random');
-    const dogData = await dogResponse.json();
+    const dogData = await dogResponse.json() as { status?: string };
     externalApiTest = { status: dogData.status === "success" ? "ok" : "failed", error: null };
   } catch (fetchError) {
     externalApiTest = { status: "failed", error: fetchError instanceof Error ? fetchError.message : "Unknown error" };
