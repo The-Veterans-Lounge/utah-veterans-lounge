@@ -14,9 +14,10 @@ export function getEnv() {
     process.env.HOSTED_BASE_URL ||
     "https://testing-purposes-1a1ce7.webflow.io";
   const isLocal = baseUrl.includes("localhost");
-  const currEnv = isLocal ? "app" : "test";
+  const currEnv = isLocal ? "app" : env.NODE_ENV;
 
   return {
+    NODE_ENV: currEnv,
     STRIPE_SECRET_KEY: env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY,
     STRIPE_PUBLISHABLE_KEY:
       env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY,
@@ -50,9 +51,7 @@ export function getResend(): Resend {
   const env = getEnv();
 
   if (!env.RESEND_KEY) {
-    throw new Error(
-      "RESEND_KEY not found in Cloudflare env or process.env"
-    );
+    throw new Error("RESEND_KEY not found in Cloudflare env or process.env");
   }
 
   return new Resend(env.RESEND_KEY);
