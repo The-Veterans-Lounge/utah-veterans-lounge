@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <Navigation />
-      <BasicSection>your code</BasicSection>
+      <div>your code</div>
       <Footer />
     </main>
   );
