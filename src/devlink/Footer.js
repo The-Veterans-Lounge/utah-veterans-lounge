@@ -375,7 +375,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                 width="auto"
                 height="auto"
                 alt=""
-                src="https://cdn.prod.website-files.com/6883f2bbdba50b3268a5c7ff/6883f2bbdba50b3268a5c861_footer_title.svg"
+                src="https://cdn.prod.website-files.com/6883f2bbdba50b3268a5c7ff/6883f2bbdba50b3268a5c861_209785e0e44e1a80f1e2fe41eb731da4_footer_title.svg"
               />
             </_Builtin.Block>
             <_Builtin.Block
