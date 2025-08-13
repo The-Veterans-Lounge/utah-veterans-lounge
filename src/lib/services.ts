@@ -20,7 +20,7 @@ export function getEnv() {
     STRIPE_SECRET_KEY: env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY,
     STRIPE_PUBLISHABLE_KEY:
       env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY,
-    RESEND_API_KEY: env.RESEND_API_KEY || process.env.RESEND_API_KEY,
+    RESEND_KEY: process.env.RESEND_KEY || env.RESEND_KEY,
     WEBFLOW_BASE_URL: "https://testing-purposes-1a1ce7.webflow.io",
     HOSTED_BASE_API_URL: `${baseUrl || "http://localhost:3000"}/${currEnv}/api`,
   };
@@ -49,11 +49,11 @@ export function getStripe(): Stripe {
 export function getResend(): Resend {
   const env = getEnv();
 
-  if (!env.RESEND_API_KEY) {
+  if (!env.RESEND_KEY) {
     throw new Error(
-      "RESEND_API_KEY not found in Cloudflare env or process.env"
+      "RESEND_KEY not found in Cloudflare env or process.env"
     );
   }
 
-  return new Resend(env.RESEND_API_KEY);
+  return new Resend(env.RESEND_KEY);
 }

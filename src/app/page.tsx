@@ -6,7 +6,7 @@ export default function Home() {
       title: "Thursday Night Poker Night",
       date: "Thursdays · 6:00–9:30 PM",
       location: "1825 Mountain Springs Pkwy, Springville, UT",
-      desc: "Friendly Texas Hold'em night. All skill levels welcome. Food & drinks provided.",
+      desc: "Friendly Texas Hold&apos;em night. All skill levels welcome. Food & drinks provided.",
       cta: { label: "View Calendar", href: "/events" },
     },
     {
@@ -27,9 +27,9 @@ export default function Home() {
             <div className="h-9 w-9 rounded-lg bg-black text-white grid place-items-center font-bold">
               VL
             </div>
-            <span className="sr-only">The Veteran's Lounge</span>
+            <span className="sr-only">The Veteran&apos;s Lounge</span>
             <span className="hidden sm:block font-semibold">
-              The Veteran's Lounge
+              The Veteran&apos;s Lounge
             </span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm">
@@ -118,7 +118,7 @@ export default function Home() {
               A safe, welcoming space for Veterans
             </h1>
             <p className="mt-5 text-lg text-neutral-700 max-w-prose">
-              The Veteran's Lounge is a place to relax, connect, and belong.
+              The Veteran&apos;s Lounge is a place to relax, connect, and belong.
               Designed by veterans for veterans—play games, watch movies, or
               just hang out without crowds, noise, or pressure.
             </p>
@@ -133,7 +133,7 @@ export default function Home() {
                 href="#events"
                 className="px-5 py-3 rounded-2xl border border-neutral-300 hover:bg-neutral-100"
               >
-                See What's On
+                See What&apos;s On
               </a>
             </div>
             <div className="mt-8 flex items-center gap-4 text-sm text-neutral-600">
@@ -187,7 +187,7 @@ export default function Home() {
               </div>
               <p className="mt-6 text-neutral-700">
                 Come for table games or consoles, stay for the community.
-                Whether you're in the mood for movies, a few rounds of pool, or
+                Whether you&apos;re in the mood for movies, a few rounds of pool, or
                 a quiet conversation, you’ll find a place here.
               </p>
             </div>
@@ -247,7 +247,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-bold">What's happening</h2>
+              <h2 className="text-3xl font-bold">What&apos;s happening</h2>
               <p className="mt-2 text-neutral-700">
                 Upcoming events and activities.
               </p>
@@ -299,7 +299,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Support the mission</h2>
             <p className="mt-3 text-white/80 max-w-prose">
               Your gift helps us keep the doors open and programs running for
-              veterans in our community. The Veteran's Lounge is a registered
+              veterans in our community. The Veteran&apos;s Lounge is a registered
               501(c)(19) organization.
             </p>
             <div className="mt-6 flex gap-3">
@@ -442,7 +442,7 @@ export default function Home() {
       <footer className="py-10 border-t border-neutral-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 gap-6 items-center">
           <p className="text-sm text-neutral-600">
-            © {new Date().getFullYear()} The Veteran's Lounge. All rights
+            © {new Date().getFullYear()} The Veteran&apos;s Lounge. All rights
             reserved.
           </p>
           <div className="justify-self-end flex items-center gap-4 text-sm text-neutral-600">

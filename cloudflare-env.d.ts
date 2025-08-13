@@ -8,7 +8,7 @@ interface CloudflareEnv {
   STRIPE_PUBLISHABLE_KEY?: string;
 
   // Email Configuration
-  RESEND_API_KEY?: string;
+  RESEND_KEY?: string;
 
   // Base URL Configuration
   HOSTED_BASE_URL?: string;
