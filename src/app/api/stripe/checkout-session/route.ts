@@ -50,6 +50,14 @@ export async function POST(request: NextRequest) {
     }
 
     console.error("Error creating checkout session:", error);
+    console.error("Error details:", {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+      env: {
+        hasStripeKey: !!getEnv().STRIPE_SECRET_KEY,
+        hostedBaseApiUrl: getEnv().HOSTED_BASE_API_URL
+      }
+    });
     return NextResponse.json(
       { error: "Failed to create checkout session" },
       { status: 500 }
