@@ -1,7 +1,5 @@
 "use client";
 
-import { Section, Block, Link } from "@/devlink/_Builtin";
-
 export default function Home() {
   const events = [
     {
@@ -54,25 +52,41 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <button
               onClick={async () => {
+                console.log("Button is being clicked");
                 try {
-                  const response = await fetch('/app/api/stripe/checkout-session', {
-                    method: 'POST',
-                  });
-                  
+                  // Dynamic environment detection on client-side
+                  const isLocal = window.location.hostname === "localhost";
+                  const apiPath = isLocal ? "/app/api" : "/test/api";
+
+                  const response = await fetch(
+                    `${apiPath}/stripe/checkout-session`,
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        amount: isLocal ? 2500 : 5000, // $25 local, $50 hosted
+                      }),
+                    }
+                  );
+
                   if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    throw new Error(
+                      `HTTP ${response.status}: ${response.statusText}`
+                    );
                   }
-                  
-                  const data = await response.json() as { url: string };
-                  
+
+                  const data = (await response.json()) as { url: string };
+
                   if (!data.url) {
-                    throw new Error('No checkout URL received from server');
+                    throw new Error("No checkout URL received from server");
                   }
-                  
+
                   window.location.href = data.url;
                 } catch (error) {
-                  console.error('Checkout error:', error);
-                  alert('Payment system temporarily unavailable. Please try again in a moment.');
+                  console.error("Checkout error:", error);
+                  alert(
+                    "Payment system temporarily unavailable. Please try again in a moment."
+                  );
                 }
               }}
               className="px-4 py-2 rounded-xl bg-red-600 text-white hover:bg-red-700 text-sm"
