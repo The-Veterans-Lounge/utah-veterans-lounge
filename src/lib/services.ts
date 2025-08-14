@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { Resend } from "resend";
 
 /**
- * Get environment configuration values with Cloudflare/local fallbacks
+ * Get environment configuration values withq Cloudflare/local fallbacks
  */
 export function getEnv() {
   const { env } = getCloudflareContext();
@@ -12,7 +12,8 @@ export function getEnv() {
   const baseUrl =
     env.HOSTED_BASE_URL ||
     process.env.HOSTED_BASE_URL ||
-    "https://testing-purposes-1a1ce7.webflow.io";
+    "http://localhost:3000";
+  if (!baseUrl.trim()) throw new Error("Failed to obtain HOSTED_BASE_URL");
   const isLocal = baseUrl.includes("localhost");
   const currEnv = isLocal ? "app" : env.NODE_ENV;
 
@@ -23,7 +24,7 @@ export function getEnv() {
       env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY,
     RESEND_KEY: process.env.RESEND_KEY || env.RESEND_KEY,
     WEBFLOW_BASE_URL: "https://testing-purposes-1a1ce7.webflow.io",
-    HOSTED_BASE_API_URL: `${baseUrl || "http://localhost:3000"}/${currEnv}/api`,
+    HOSTED_BASE_API_URL: `${baseUrl}/${currEnv}/api`,
   };
 }
 
