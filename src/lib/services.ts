@@ -24,7 +24,7 @@ export function getEnv() {
       env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY,
     RESEND_KEY: process.env.RESEND_KEY || env.RESEND_KEY,
     WEBFLOW_BASE_URL: "https://testing-purposes-1a1ce7.webflow.io",
-    HOSTED_BASE_API_URL: `${baseUrl}/api`,
+    HOSTED_BASE_API_URL: `${baseUrl}/${currEnv}/api`,
   };
 }
 
