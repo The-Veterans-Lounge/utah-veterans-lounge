@@ -8,9 +8,8 @@ export function getEnv() {
   // Use process.env directly for Vercel compatibility
   const env = process.env;
 
-  // Simple localhost check for environment detection
-  const baseUrl = env.HOSTED_BASE_URL || "http://localhost:3000";
-  if (!baseUrl.trim()) throw new Error("Failed to obtain HOSTED_BASE_URL");
+  // Use Vercel's built-in URL or localhost for development
+  const baseUrl = env.VERCEL_URL ? `https://${env.VERCEL_URL}` : "http://localhost:3000";
   const isLocal = baseUrl.includes("localhost");
   const currEnv = isLocal ? "app" : env.NODE_ENV;
 
