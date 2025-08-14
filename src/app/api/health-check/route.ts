@@ -3,6 +3,8 @@
 // }
 import { getEnv } from "@/lib/services";
 
+export const runtime = 'nodejs';
+
 export async function GET() {
   const env = getEnv();
 

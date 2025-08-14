@@ -1,12 +1,12 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
 import Stripe from "stripe";
 import { Resend } from "resend";
 
 /**
- * Get environment configuration values withq Cloudflare/local fallbacks
+ * Get environment configuration values with Vercel/local fallbacks
  */
 export function getEnv() {
-  const { env } = getCloudflareContext();
+  // Use process.env directly for Vercel compatibility
+  const env = process.env;
 
   // Simple localhost check for environment detection
   const baseUrl = env.HOSTED_BASE_URL || "http://localhost:3000";
@@ -16,10 +16,9 @@ export function getEnv() {
 
   return {
     NODE_ENV: currEnv || "development",
-    STRIPE_SECRET_KEY: env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY,
-    STRIPE_PUBLISHABLE_KEY:
-      env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY,
-    RESEND_KEY: process.env.RESEND_KEY || env.RESEND_KEY,
+    STRIPE_SECRET_KEY: env.STRIPE_SECRET_KEY,
+    STRIPE_PUBLISHABLE_KEY: env.STRIPE_PUBLISHABLE_KEY,
+    RESEND_KEY: env.RESEND_KEY,
     WEBFLOW_BASE_URL: "https://testing-purposes-1a1ce7.webflow.io",
     HOSTED_BASE_API_URL: `${baseUrl}/${currEnv}/api`,
   };

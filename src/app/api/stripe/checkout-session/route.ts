@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStripe, getEnv } from "@/lib/services";
 import { z } from "zod";
 
+export const runtime = 'nodejs';
+
 const CheckoutRequestSchema = z.object({
   amount: z
     .number()
