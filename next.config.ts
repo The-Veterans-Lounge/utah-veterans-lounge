@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/app",
+  // Removed basePath for Vercel deployment testing
 };
 
 export default nextConfig;
