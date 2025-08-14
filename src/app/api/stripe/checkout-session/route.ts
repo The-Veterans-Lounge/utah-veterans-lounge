@@ -4,6 +4,18 @@ import { z } from "zod";
 
 export const runtime = 'nodejs';
 
+// Handle CORS preflight requests
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': 'https://testing-purposes-1a1ce7.webflow.io',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
+}
+
 const CheckoutRequestSchema = z.object({
   amount: z
     .number()
@@ -51,7 +63,13 @@ export async function POST(request: NextRequest) {
       cancel_url: `${env.HOSTED_BASE_API_URL}/`,
     });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ url: session.url }, {
+      headers: {
+        'Access-Control-Allow-Origin': 'https://testing-purposes-1a1ce7.webflow.io',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+    });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
