@@ -56,7 +56,7 @@ export default function Home() {
                 try {
                   // Dynamic environment detection on client-side
                   const isLocal = window.location.hostname === "localhost";
-                  const apiPath = isLocal ? "/app/api" : "/test/api";
+                  const apiPath = "/api";
 
                   const response = await fetch(
                     `${apiPath}/stripe/checkout-session`,
