@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripeRequest, getEnv } from "@/lib/services";
+import { validatedStripeRequest, getEnv } from "@/lib/services";
 import { z } from "zod";
+import { StripeCheckoutSessionSchema, StripeProductListSchema } from "@/lib/stripe-types";
 
 const CheckoutRequestSchema = z.object({
   amount: z
@@ -21,7 +22,7 @@ export async function POST(request: NextRequest) {
     // Test Stripe connectivity
     console.log("Testing Stripe connectivity...");
     try {
-      await stripeRequest("products?limit=1");
+      await validatedStripeRequest("products?limit=1", StripeProductListSchema);
       console.log("Stripe API connection successful");
     } catch (connectError) {
       console.error("Stripe connectivity test failed:", connectError);
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
     sessionData.append('success_url', `${env.HOSTED_BASE_API_URL}/stripe/success?session_id={CHECKOUT_SESSION_ID}`);
     sessionData.append('cancel_url', `${env.HOSTED_BASE_API_URL}/`);
 
-    const session = await stripeRequest('checkout/sessions', {
+    const session = await validatedStripeRequest('checkout/sessions', StripeCheckoutSessionSchema, {
       method: 'POST',
       body: sessionData,
     });

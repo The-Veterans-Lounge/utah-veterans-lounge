@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripeRequest } from "@/lib/services";
+import { validatedStripeRequest } from "@/lib/services";
+import { StripeCheckoutSessionSchema } from "@/lib/stripe-types";
 
 export async function GET(request: NextRequest) {
   try {
@@ -13,7 +14,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Retrieve the checkout session from Stripe using REST API
-    const session = await stripeRequest(`checkout/sessions/${sessionId}`);
+    const session = await validatedStripeRequest(`checkout/sessions/${sessionId}`, StripeCheckoutSessionSchema);
 
     // Extract customer info from session for testing
     const customerInfo = {

@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   const results = {
     timestamp: new Date().toISOString(),
-    tests: {} as Record<string, any>
+    tests: {} as Record<string, unknown>
   };
 
   // Test 1: Basic fetch to Stripe API

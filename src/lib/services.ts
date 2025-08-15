@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { Resend } from "resend";
+import { z } from "zod";
 
 /**
  * Get environment configuration values withq Cloudflare/local fallbacks
@@ -30,7 +31,7 @@ export function getEnv() {
 /**
  * Make authenticated requests to Stripe REST API
  */
-export async function stripeRequest(endpoint: string, options: RequestInit = {}) {
+export async function stripeRequest(endpoint: string, options: RequestInit = {}): Promise<unknown> {
   const env = getEnv();
 
   if (!env.STRIPE_SECRET_KEY) {
@@ -58,6 +59,26 @@ export async function stripeRequest(endpoint: string, options: RequestInit = {})
   }
 
   return response.json();
+}
+
+/**
+ * Validated Stripe request with schema checking
+ */
+export async function validatedStripeRequest<T>(
+  endpoint: string,
+  schema: z.ZodSchema<T>,
+  options: RequestInit = {}
+): Promise<T> {
+  const response = await stripeRequest(endpoint, options);
+  
+  try {
+    return schema.parse(response);
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      throw new Error(`Stripe API response validation failed: ${error.issues.map(i => i.message).join(', ')}`);
+    }
+    throw error;
+  }
 }
 
 /**
