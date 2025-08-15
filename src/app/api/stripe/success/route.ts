@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getStripe } from "@/lib/services";
+import { stripeRequest } from "@/lib/services";
 
 export async function GET(request: NextRequest) {
   try {
@@ -12,10 +12,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const stripe = getStripe();
-
-    // Retrieve the checkout session from Stripe
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    // Retrieve the checkout session from Stripe using REST API
+    const session = await stripeRequest(`checkout/sessions/${sessionId}`);
 
     // Extract customer info from session for testing
     const customerInfo = {

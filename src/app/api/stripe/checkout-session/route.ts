@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getStripe, getEnv } from "@/lib/services";
+import { stripeRequest, getEnv } from "@/lib/services";
 import { z } from "zod";
 
 const CheckoutRequestSchema = z.object({
@@ -16,37 +16,33 @@ export async function POST(request: NextRequest) {
     const validatedData = CheckoutRequestSchema.parse(body);
     const { amount } = validatedData;
     console.log("THis is amount", amount);
-    const stripe = getStripe();
     const env = getEnv();
     
     // Test Stripe connectivity
     console.log("Testing Stripe connectivity...");
     try {
-      await stripe.products.list({ limit: 1 });
+      await stripeRequest("products?limit=1");
       console.log("Stripe API connection successful");
     } catch (connectError) {
       console.error("Stripe connectivity test failed:", connectError);
     }
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      customer_creation: "always", // Always create customer for auth purposes
-      line_items: [
-        {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: "Donation to The Veterans Lounge",
-              description: "Support our mission to serve veterans",
-            },
-            unit_amount: amount, // Amount in cents from request
-          },
-          quantity: 1,
-        },
-      ],
-      mode: "payment",
-      success_url: `${env.HOSTED_BASE_API_URL}/stripe/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${env.HOSTED_BASE_API_URL}/`,
+    // Create checkout session using REST API
+    const sessionData = new URLSearchParams();
+    sessionData.append('payment_method_types[]', 'card');
+    sessionData.append('customer_creation', 'always');
+    sessionData.append('line_items[0][price_data][currency]', 'usd');
+    sessionData.append('line_items[0][price_data][product_data][name]', 'Donation to The Veterans Lounge');
+    sessionData.append('line_items[0][price_data][product_data][description]', 'Support our mission to serve veterans');
+    sessionData.append('line_items[0][price_data][unit_amount]', amount.toString());
+    sessionData.append('line_items[0][quantity]', '1');
+    sessionData.append('mode', 'payment');
+    sessionData.append('success_url', `${env.HOSTED_BASE_API_URL}/stripe/success?session_id={CHECKOUT_SESSION_ID}`);
+    sessionData.append('cancel_url', `${env.HOSTED_BASE_API_URL}/`);
+
+    const session = await stripeRequest('checkout/sessions', {
+      method: 'POST',
+      body: sessionData,
     });
 
     return NextResponse.json({ url: session.url });

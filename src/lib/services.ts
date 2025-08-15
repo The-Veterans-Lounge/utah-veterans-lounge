@@ -1,5 +1,4 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import Stripe from "stripe";
 import { Resend } from "resend";
 
 /**
@@ -29,9 +28,9 @@ export function getEnv() {
 }
 
 /**
- * Get Stripe instance with current environment configuration
+ * Make authenticated requests to Stripe REST API
  */
-export function getStripe(): Stripe {
+export async function stripeRequest(endpoint: string, options: RequestInit = {}) {
   const env = getEnv();
 
   if (!env.STRIPE_SECRET_KEY) {
@@ -40,9 +39,25 @@ export function getStripe(): Stripe {
     );
   }
 
-  return new Stripe(env.STRIPE_SECRET_KEY, {
-    apiVersion: "2025-07-30.basil",
+  const url = `https://api.stripe.com/v1/${endpoint}`;
+  const headers = {
+    'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Stripe-Version': '2025-07-30.basil',
+    ...options.headers,
+  };
+
+  const response = await fetch(url, {
+    ...options,
+    headers,
   });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Stripe API error: ${response.status} - ${error}`);
+  }
+
+  return response.json();
 }
 
 /**

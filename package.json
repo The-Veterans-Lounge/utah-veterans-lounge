@@ -16,7 +16,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "resend": "^6.0.1",
-    "stripe": "^18.4.0",
     "zod": "^4.0.17"
   },
   "devDependencies": {
