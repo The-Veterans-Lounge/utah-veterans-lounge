@@ -8,23 +8,19 @@ import { z } from "zod";
 export function getEnv() {
   const { env } = getCloudflareContext();
 
-  // Simple localhost check for environment detection
   const baseUrl =
     env.HOSTED_BASE_URL ||
     process.env.HOSTED_BASE_URL ||
     "http://localhost:3000";
   if (!baseUrl.trim()) throw new Error("Failed to obtain HOSTED_BASE_URL");
-  const isLocal = baseUrl.includes("localhost");
-  const currEnv = isLocal ? "app" : env.NODE_ENV;
 
   return {
-    NODE_ENV: currEnv,
     STRIPE_SECRET_KEY: env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY,
     STRIPE_PUBLISHABLE_KEY:
       env.STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY,
     RESEND_KEY: process.env.RESEND_KEY || env.RESEND_KEY,
     WEBFLOW_BASE_URL: "https://testing-purposes-1a1ce7.webflow.io",
-    HOSTED_BASE_API_URL: `${baseUrl}/api`,
+    HOSTED_BASE_API_URL: `${baseUrl}/app/api`,
   };
 }
 
