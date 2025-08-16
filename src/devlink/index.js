@@ -12,8 +12,16 @@ export * from "./devlink";
 export * from "./BasicSection";
 export * from "./Button"; // Error: Unexpected error
 export * from "./DevLinkProvider";
+export * from "./EmpowerSection";
 export * from "./Footer";
+export * from "./FooterComponent";
 export * from "./GlobalStyles";
+export * from "./HeroSection";
 export * from "./IconColor";
 export * from "./IconSize";
+export * from "./MissionSection";
+export * from "./NavbarComponent";
 export * from "./Navigation";
+export * from "./StatsSection";
+export * from "./TeamSection";
+export * from "./VisionSection";

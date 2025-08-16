@@ -3,9 +3,9 @@ import React from "react";
 import * as _Builtin from "./_Builtin";
 import { Button } from "./Button";
 import * as _utils from "./utils";
-import _styles from "./Footer.module.css";
+import _styles from "./FooterComponent.module.css";
 
-export function Footer({ as: _Component = _Builtin.Block }) {
+export function FooterComponent({ as: _Component = _Builtin.Block }) {
   return (
     <_Component
       className={_utils.cx(
@@ -59,7 +59,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                         animation-element="text-fade-in"
                       >
                         {
-                          "Help us turn small actions into lasting change. Your donation supports the people and projects building a better future — one step at a time."
+                          "Your donation fuels real impact: weekly dinners, veteran resources, and 200+ strong connections. Join us in building Utah's most active veteran community."
                         }
                       </_Builtin.Heading>
                     </_Builtin.Block>
@@ -232,7 +232,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                   className={_utils.cx(_styles, "footer_left-wrapper")}
                   id={_utils.cx(
                     _styles,
-                    "w-node-f21cfa00-02f6-5b1b-b3f8-a4710e4642e6-0e4642c1"
+                    "w-node-_0e6936a3-fc24-c273-d480-0511e412db38-e412db13"
                   )}
                   tag="div"
                 >
@@ -240,7 +240,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                     className={_utils.cx(_styles, "footer_logo-link")}
                     id={_utils.cx(
                       _styles,
-                      "w-node-f21cfa00-02f6-5b1b-b3f8-a4710e4642e7-0e4642c1"
+                      "w-node-_0e6936a3-fc24-c273-d480-0511e412db39-e412db13"
                     )}
                     options={{
                       href: "#",
@@ -250,7 +250,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                       className={_utils.cx(_styles, "navbar_logo")}
                       tag="div"
                     >
-                      {"GiveWell"}
+                      {"Vets Lounge"}
                     </_Builtin.Block>
                   </_Builtin.NavbarBrand>
                   <_Builtin.Paragraph
@@ -306,7 +306,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                         className={_utils.cx(_styles, "cta_form-button")}
                         id={_utils.cx(
                           _styles,
-                          "w-node-f21cfa00-02f6-5b1b-b3f8-a4710e4642f3-0e4642c1"
+                          "w-node-_0e6936a3-fc24-c273-d480-0511e412db45-e412db13"
                         )}
                         type="submit"
                         value="Subscribe"
@@ -419,7 +419,7 @@ export function Footer({ as: _Component = _Builtin.Block }) {
                   className={_utils.cx(_styles, "footer_credit-text")}
                   tag="div"
                 >
-                  {"© 2025 GiveWell. All rights reserved."}
+                  {"© 2025 The Vet Lounge. All rights reserved."}
                 </_Builtin.Block>
               </_Builtin.Block>
             </_Builtin.Block>
