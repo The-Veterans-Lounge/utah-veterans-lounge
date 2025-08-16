@@ -9,7 +9,7 @@ export function getEnv() {
   const { env } = getCloudflareContext();
 
   const baseUrl = env.HOSTED_BASE_URL || process.env.HOSTED_BASE_URL;
-  const mountPath = env.MOUNT_PATH || "app"; =
+  const mountPath = env.MOUNT_PATH || "app";
 
   return {
     STRIPE_SECRET_KEY: env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY,
