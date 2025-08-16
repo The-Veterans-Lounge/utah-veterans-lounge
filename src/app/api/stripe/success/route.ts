@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 
     // Retrieve the checkout session from Stripe using REST API
     const session = await validatedStripeRequest(
-      `checkout-sessions/${sessionId}`,
+      `checkout/sessions/${sessionId}`,
       StripeCheckoutSessionSchema
     );
 
