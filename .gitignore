@@ -47,3 +47,6 @@ next-env.d.ts
 
 # webflow cli build artifacts
 .tmp/
+
+# AI Documentation
+aiDocs/
