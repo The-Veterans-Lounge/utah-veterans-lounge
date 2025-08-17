@@ -33,18 +33,21 @@ export async function GET(request: NextRequest) {
       try {
         await sendEmail({
           to: customerInfo.email,
-          from: "onboarding@resend.dev",
           subject: "Thank you for your donation to The Veterans Lounge",
           html: `
             <h1>Thank you for your donation!</h1>
-            <p>Dear ${customerInfo.name || 'Donor'},</p>
-            <p>We have received your generous donation of $${(session.amount_total || 0) / 100} to The Veterans Lounge.</p>
+            <p>Dear ${customerInfo.name || "Donor"},</p>
+            <p>We have received your generous donation of $${
+              (Number(session.amount_total) || 0) / 100
+            } to The Veterans Lounge.</p>
             <p>Your support helps us continue our mission to serve veterans in our community.</p>
             <br>
             <p>Transaction ID: ${sessionId}</p>
             <p>With gratitude,<br>The Veterans Lounge Team</p>
           `,
-          text: `Thank you for your donation! We have received your generous donation of $${(session.amount_total || 0) / 100} to The Veterans Lounge. Your support helps us continue our mission to serve veterans. Transaction ID: ${sessionId}`
+          text: `Thank you for your donation! We have received your generous donation of $${
+            (Number(session.amount_total) || 0) / 100
+          } to The Veterans Lounge. Your support helps us continue our mission to serve veterans. Transaction ID: ${sessionId}`,
         });
         console.log("Confirmation email sent to:", customerInfo.email);
       } catch (emailError) {
