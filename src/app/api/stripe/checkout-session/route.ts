@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validatedStripeRequest, getEnv } from "@/lib/services";
+import { getEnv } from "@/lib/config";
 import { z } from "zod";
-import { StripeCheckoutSessionSchema, StripeProductListSchema } from "@/lib/stripe-types";
+import { StripeCheckoutSessionSchema, StripeProductListSchema, validatedStripeRequest } from "@/services/stripe";
 
 const CheckoutRequestSchema = z.object({
   amount: z

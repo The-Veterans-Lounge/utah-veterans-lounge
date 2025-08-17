@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validatedStripeRequest, sendEmail } from "@/lib/services";
-import { StripeCheckoutSessionSchema } from "@/lib/stripe-types";
+import { sendEmail } from "@/services/email";
+import { StripeCheckoutSessionSchema, validatedStripeRequest } from "@/services/stripe";
 
 export async function GET(request: NextRequest) {
   try {
@@ -24,6 +24,7 @@ export async function GET(request: NextRequest) {
       id: session.customer,
       email: session.customer_details?.email,
       name: session.customer_details?.name,
+      amount: session.amount_total,
     };
 
     console.log("Customer extracted from session:", customerInfo);
