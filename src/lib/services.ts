@@ -82,7 +82,41 @@ export async function validatedStripeRequest<T>(
 }
 
 /**
- * Get Resend instance for email sending
+ * Send email using Resend with validation
+ */
+export async function sendEmail(emailData: {
+  to: string | string[];
+  subject: string;
+  html?: string;
+  text?: string;
+  from?: string;
+}) {
+  const env = getEnv();
+
+  if (!env.RESEND_KEY) {
+    throw new Error("RESEND_KEY not found in Cloudflare env or process.env");
+  }
+
+  const resend = new Resend(env.RESEND_KEY);
+  
+  const emailOptions = {
+    from: emailData.from || 'noreply@utah-veterans-lounge.com',
+    to: emailData.to,
+    subject: emailData.subject,
+    html: emailData.html,
+    text: emailData.text,
+  };
+
+  try {
+    const result = await resend.emails.send(emailOptions);
+    return result;
+  } catch (error) {
+    throw new Error(`Email sending failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
+}
+
+/**
+ * Get Resend instance for direct access (if needed)
  */
 export function getResend(): Resend {
   const env = getEnv();

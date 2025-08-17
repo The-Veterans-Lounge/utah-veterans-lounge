@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validatedStripeRequest } from "@/lib/services";
+import { validatedStripeRequest, sendEmail } from "@/lib/services";
 import { StripeCheckoutSessionSchema } from "@/lib/stripe-types";
 
 export async function GET(request: NextRequest) {
@@ -27,6 +27,31 @@ export async function GET(request: NextRequest) {
     };
 
     console.log("Customer extracted from session:", customerInfo);
+
+    // Send confirmation email if customer email is available
+    if (customerInfo.email) {
+      try {
+        await sendEmail({
+          to: customerInfo.email,
+          from: "onboarding@resend.dev",
+          subject: "Thank you for your donation to The Veterans Lounge",
+          html: `
+            <h1>Thank you for your donation!</h1>
+            <p>Dear ${customerInfo.name || 'Donor'},</p>
+            <p>We have received your generous donation of $${(session.amount_total || 0) / 100} to The Veterans Lounge.</p>
+            <p>Your support helps us continue our mission to serve veterans in our community.</p>
+            <br>
+            <p>Transaction ID: ${sessionId}</p>
+            <p>With gratitude,<br>The Veterans Lounge Team</p>
+          `,
+          text: `Thank you for your donation! We have received your generous donation of $${(session.amount_total || 0) / 100} to The Veterans Lounge. Your support helps us continue our mission to serve veterans. Transaction ID: ${sessionId}`
+        });
+        console.log("Confirmation email sent to:", customerInfo.email);
+      } catch (emailError) {
+        console.error("Failed to send confirmation email:", emailError);
+        // Don't fail the whole request if email fails
+      }
+    }
 
     // Pretty print all the session data so we can see what's available
     return NextResponse.json(
