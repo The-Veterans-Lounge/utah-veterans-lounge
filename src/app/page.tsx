@@ -1,6 +1,53 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Home() {
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginStatus, setLoginStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [loginMessage, setLoginMessage] = useState("");
+
+  const handleMagicLinkLogin = async () => {
+    if (!loginEmail.trim()) {
+      setLoginStatus("error");
+      setLoginMessage("Please enter your email address");
+      return;
+    }
+
+    setLoginStatus("loading");
+    setLoginMessage("Sending magic link...");
+
+    try {
+      // Dynamic environment detection
+      const isLocal = window.location.hostname === "localhost";
+      const apiPath = isLocal ? "/app/api" : "/test/api";
+
+      const response = await fetch(`${apiPath}/auth/magic-link`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: loginEmail }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        setLoginStatus("success");
+        setLoginMessage("Magic link sent! Check your email and click the link to sign in.");
+        setLoginEmail(""); // Clear the input
+      } else {
+        throw new Error(data.error || "Failed to send magic link");
+      }
+    } catch (error) {
+      console.error("Magic link error:", error);
+      setLoginStatus("error");
+      setLoginMessage("Unable to send magic link. Please try again.");
+    }
+  };
+
   const events = [
     {
       title: "Thursday Night Poker Night",
@@ -50,6 +97,40 @@ export default function Home() {
             </a>
           </nav>
           <div className="flex items-center gap-3">
+            {/* Magic Link Login */}
+            <div className="relative">
+              <div className="flex items-center gap-2">
+                <input
+                  type="email"
+                  placeholder="Email for login"
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleMagicLinkLogin()}
+                  className="px-3 py-2 rounded-xl border border-neutral-300 text-sm w-40 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  onClick={handleMagicLinkLogin}
+                  disabled={loginStatus === "loading"}
+                  className="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-sm disabled:opacity-50"
+                >
+                  {loginStatus === "loading" ? "Sending..." : "Login"}
+                </button>
+              </div>
+              {loginMessage && (
+                <div
+                  className={`absolute top-full left-0 mt-2 p-2 rounded-lg text-xs min-w-64 z-50 ${
+                    loginStatus === "success"
+                      ? "bg-green-100 text-green-800 border border-green-200"
+                      : loginStatus === "error"
+                      ? "bg-red-100 text-red-800 border border-red-200"
+                      : "bg-blue-100 text-blue-800 border border-blue-200"
+                  }`}
+                >
+                  {loginMessage}
+                </div>
+              )}
+            </div>
+
             <button
               onClick={async () => {
                 console.log("Button is being clicked");
