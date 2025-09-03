@@ -88,22 +88,37 @@ export function NavbarComponent({ as: _Component = _Builtin.NavbarWrapper }) {
                 href: "#",
               }}
             >
-              {"Our impact"}
+              {"Greg's Stripe"}
             </_Builtin.NavbarLink>
           </_Builtin.Block>
           <_Builtin.Block
             className={_utils.cx(_styles, "navbar_menu-buttons")}
             tag="div"
+            data-stripe-donate="true"
           >
             <Button
               buttonText="Donate"
               buttonLink={{
-                href: "https://donate.stripe.com/test_eVq14pfCB9iW5MKcwx0VO03",
+                href: "https://donate.stripe.com/9B68wPaG61fm4Bwb4Z5J602",
                 target: "_blank",
               }}
               variant="Full Red"
             />
           </_Builtin.Block>
+          <_Builtin.NavbarLink
+            options={{
+              href: "https://donate.stripe.com/test_9B68wPaG61fm4Bwb4Z5J602",
+            }}
+          >
+            {"stripe-sub-donate"}
+          </_Builtin.NavbarLink>
+          <_Builtin.NavbarLink
+            options={{
+              href: "https://donate.stripe.com/test_3cI14n15wf6c9VQ0ql5J601",
+            }}
+          >
+            {"stripe-custom-donate"}
+          </_Builtin.NavbarLink>
         </_Builtin.NavbarMenu>
         <_Builtin.NavbarButton
           className={_utils.cx(_styles, "navbar_menu-button")}
